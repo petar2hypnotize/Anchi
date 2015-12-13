@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
+
       flash[:success] = "Your post has been created!"
       redirect_to posts_path
     else
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:danger] = 'Post Unishten'
+    flash[:alert] = 'Post Unishten'
     redirect_to root_path
   end
 
